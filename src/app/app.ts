@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CardComponent } from "./Pokemon/Components/Card-component/Card-component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ CardComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

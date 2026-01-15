@@ -1,0 +1,90 @@
+
+
+<!--Contendor Principal-->
+<div class="text-2xl text-amber-300 h-200 w-250 m-0 bg-amber-50 p-2 rounded-3xl ">
+
+<!--Contendor superior-->
+  <div class="w-full flex items-center justify-between mt-12" >
+    <div class="h-1/2 w-1/2 ">
+      <img src="/img/pokemon-logo.png" alt="Logo-pokemon">
+    </div>
+
+    <div class="flex flex-col justify-center gap-4">
+      <div
+        class="bg-amber-400 text-amber-100 p-5 h-12 w-40 border-2 border-amber-500 rounded-3xl flex justify-start items-center">
+        N° {{ pokemon().id }}
+      </div>
+
+      <div
+        class="bg-amber-400 text-amber-100 p-5 h-12 w-60 border-2 border-amber-500 rounded-3xl flex justify-start items-center">
+        {{ pokemon().name | titlecase }}
+      </div>
+
+  </div>
+
+  <!-- IMAGEN -->
+  <div class="flex flex-col items-center ">
+    <img
+      class="w-35 h-35 border-4 rounded-2xl"
+      [src]="pokemon().sprites.front_default"
+      [alt]="pokemon().name"
+    />
+    <div class="flex flex-row justify-between w-75">
+     @for (Tipo of pokemon().types; track $index) {
+         <p class="mt-6 w-35 bg-amber-400 text-amber-100 border-2 border-amber-500 rounded-3xl flex justify-center">
+         {{Tipo.type.name | titlecase}}
+        </p>
+     }
+
+     </div>
+  </div>
+
+  </div>
+
+
+  <!-- Contendor de informacion -->
+
+    <div class="m-4 w-240 h-100 bg-amber-100  border-2 border-amber-500 rounded-3xl ">
+      <div class="p-4 w-full text-center text-white flex flex-row justify-around items-center">
+        <strong class="text-3xl text-amber-950">
+          Habilidades:
+        </strong>
+        @for (Habilidades of pokemon().abilities; track $index) {
+        <div class="h-12 w-48  text-white bg-amber-400 border-2 border-amber-500 rounded-3xl flex justify-center items-center">
+              {{Habilidades.ability?.name}}
+        </div>
+        }
+        <div class="flex flex-row justify-around">
+          <strong class="text-3xl text-amber-950 mr-3 flex items-center">
+            Peso: </strong>
+            <div class="h-12 w-20  text-white text-center bg-amber-400 border-2 border-amber-500 rounded-3xl flex justify-center items-center">
+              {{pokemon().weight}}
+            </div>
+          </div>
+      </div>
+
+
+    </div>
+
+
+
+<!-- MOVIMIENTOS
+
+<div class="max-h-fit grid grid-cols-5 gap-4">
+  @for (Movimientos of pokemon().moves; track $index) {
+    <div class="text-center p-2 border rounded">
+      {{Movimientos.move.name}}
+    </div>
+  }
+</div>
+-->
+
+
+
+
+<!-- Inputs de busqueda -->
+
+<div class="h-20 w-1/2 m-4 flex justify-around items-center">
+  <input class="bg-whit text-1xl ml-10 border-2 border-amber-500 rounded-2xl text-center" type="text" placeholder="Buscar" [value]=PokemonName() (input)="PokemonName.set($any($event.target).value)">
+  <button class="p-2 bg-blue-400 text-1xl text-white border-2 rounded-2xl border-amber-500" type="submit" (click)="sendPokemon()">Buscar</button>
+</div>
