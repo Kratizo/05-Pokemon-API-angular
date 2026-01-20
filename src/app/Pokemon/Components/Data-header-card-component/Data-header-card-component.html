@@ -1,0 +1,51 @@
+<!--*HEADER DE CONTENEDOR PRINCIPAL-->
+  <div class="w-full flex items-center justify-around mt-12 " >
+
+    <div class="h-4/10 w-4/10 ">
+      <img src="/img/pokemon-logo.png" alt="Logo-pokemon" >
+    </div>
+
+
+      <div class="flex flex-col gap-2">
+
+            <div
+              class="bg-amber-400 text-amber-100 font-bold p-5 h-12 w-7/10 border-2 border-amber-500 rounded-3xl flex justify-start items-center">
+              N° {{ Pokemon().id }}
+            </div>
+
+          <div
+            class="bg-amber-400 text-amber-100 font-bold p-5 h-12 w-8/10 border-2 border-amber-500 rounded-3xl flex justify-start items-center">
+            {{ Pokemon().name | titlecase }}
+
+        </div>
+
+<!--*CONTENEDOR DE TIPOS DE POKEMON-->
+        <div class="text-2xl text-amber-300 min-h-fit w-fit m-0 bg-amber-50 p-6  flex items-center justify-center">
+
+          <div class=" flex flex-row flex-nowrap items-center justify-start gap-4">
+
+            <h2 class="text-3xl text-amber-950 font-bold whitespace-nowrap">Tipo:</h2>
+
+            <div class="flex flex-row flex-nowrap gap-2">
+              @for (Tipo of Pokemon().types; track $index) {
+                <p class="h-8 px-4 bg-amber-400 text-amber-100 font-bold border-2 border-amber-500 rounded-3xl flex justify-center items-center whitespace-nowrap">
+                  {{Tipo.type.name| titlecase}}
+                </p>
+              }
+            </div>
+
+          </div>
+        </div>
+
+  </div><!--!FIN DEL CONTENEDOR DE TIPOS DE POKEMON-->>
+
+  <!--* IMAGEN DE POKEMON-->
+  <div class="flex flex-col items-center ">
+    <img
+      class="w-40 h-40 border-4 rounded-2xl"
+      [src]="Pokemon().sprites.front_default"
+      [alt]="Pokemon().name"
+    />
+  </div>
+
+  </div><!--!FIN HEADER CONTENEDOR PRINCIPAL-->>

@@ -1,0 +1,73 @@
+
+  <!--*CONTENDEOR SECUNDARIO-BODY-->
+    <div class="m-4 w-245 h-100 bg-amber-100  border-2 border-amber-500 rounded-3xl">
+  <!-- HEADER DE CONTENEDOR-SECUNDARIO-->
+      <div class="p-4 w-full text-center text-white flex flex-row justify-around items-center">
+        <h2 class="text-3xl text-amber-950 font-bold">
+          Habilidades:
+        </h2>
+        @for (Habilidades of Pokemon().abilities; track $index) {
+        <div class="p-4 w-50 h-8 px-4 bg-amber-400 text-amber-100 font-bold border-2 border-amber-500 rounded-3xl flex justify-center items-center">
+          {{Habilidades.ability?.name}}
+        </div>
+        }
+        <div class="flex flex-row justify-around">
+          <strong class="text-3xl text-amber-950 mr-3 flex items-center">
+            Peso: </strong>
+            <div class="p-4 w-40 h-8 px-4 bg-amber-400 text-amber-100 font-bold border-2 border-amber-500 rounded-3xl flex justify-center items-center">
+              {{Pokemon().weight}}
+            </div>
+          </div>
+      </div>
+
+<!--*ESTADISTICAS -->
+  <div class=" w-full mb-5 text-3xl text-amber-950 font-bold text-center flex justify-around items-center">
+      <div>
+        Estadisticas
+      </div>
+      <div>
+        Movimientos
+      </div>
+  </div>
+
+      <div class="flex flex-col gap-6 pl-5">
+        <div class="flex justify-between gap-2">
+          <div class=" bg-amber-200 border-2 border-amber-500 rounded-2xl grid grid-cols-2 gap-2 p-2 w-6/10">
+            @for (Estadisticas of Pokemon().stats; track $index) {
+              <table class="text-2xl">
+                <tr>
+                  <tr class="flex justify-between">
+                    <td class="font-bold text-amber-950 border-b-2 ">
+                      {{Estadisticas.stat.name}}
+                    </td>
+                    <td class="text-white font-bold border-b-2 border-l-2 rounded-4xl p-1 border-amber-400">
+                      {{Estadisticas.base_stat}}
+                    </td>
+                  </tr>
+              </table>
+            }
+
+          </div>
+
+        <!--*MENU DE MOVIMIENTOS-->
+
+        <div class="bg-amber-200 border-2 border-amber-500 rounded-2xl h-43 w-5/10 overflow-y-auto p-2 mr-3">
+          <div class="max-W-fit grid grid-cols-2 gap-1">
+            @for (Movimientos of Pokemon().moves; track $index) {
+              <div class="text-center text-2xl p-2 border rounded-3xl bg-amber-400 text-amber-100 font-bold box-content">
+              {{Movimientos.move.name}}
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+<!--*EXPERIENCIA BASE-->
+        <div class=" bg-amber-200 border-2 border-amber-400 rounded-3xl w-1/2 flex flex-row justify-between p-1 gap-7">
+          <h2 class="text-2xl text-amber-950 font-bold pl-1">Experiencia base</h2>
+          <h2 class="text-white text-2xl font-bold pr-4">{{Pokemon().base_experience}}</h2>
+        </div>
+
+      </div><!--!FIN DE ESTADISTICAS-->
+
+    </div> <!--!FIN CONTENEDOR SECUNDARIO DETALLE-->

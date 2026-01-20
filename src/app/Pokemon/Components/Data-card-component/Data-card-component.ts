@@ -1,16 +1,20 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Para solucionar el error de titlecase
 import { PokemonService } from '../../services/Pokemon.service';
+import { DataHeaderCardComponent } from "../Data-header-card-component/Data-header-card-component";
+import { DataBodyCardComponent } from '../Data-body-card-component/Data-body-card-component';
+
+
 
 
 
 @Component({
-  selector: 'data-component',
+  selector: 'data-card-component',
   standalone: true,
-  imports: [CommonModule], // Añadir CommonModule aquí habilita pipes como titlecase
-  templateUrl: './Data-component.html',
+  imports: [CommonModule, DataHeaderCardComponent, DataBodyCardComponent], // Añadir CommonModule aquí habilita pipes como titlecase
+  templateUrl: './Data-card-component.html',
 })
-export class DataComponent {
+export class DataCardComponent {
 
   PokemonName = signal<string>('');
 
@@ -33,4 +37,5 @@ export class DataComponent {
       this.PokemonName.set('');
     });
   }
+
 }

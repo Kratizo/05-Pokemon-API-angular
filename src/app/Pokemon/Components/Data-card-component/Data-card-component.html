@@ -1,0 +1,30 @@
+
+
+
+
+
+  <!-- Este es el contenedor principal que centra todo -->
+<div class="h-screen">
+  <div class="bg-[url('/img/pokemon-background-3.jpg')] min-h-screen bg-cover bg-center bg-no-repeat w-full flex items-center justify-center p-4">
+
+    <!--*-CONTENEDOR PRINCIPAL-->
+      <div class="text-2xl text-amber-300 h-200 w-250 m-0 bg-amber-50 p-2 rounded-3xl border-7 box-content">
+
+      <data-header-card-component [Pokemon]="pokemon()"/>
+
+
+      <data-body-card-component [Pokemon]="pokemon()"/>
+
+
+    <!--*Inputs de busqueda -->
+
+      <div class="h-20 w-1/2 m-4 flex justify-around items-center">
+        <input class="bg-amber-400 p-4 text-1xl ml-10 border-2 border-amber-500 hover:bg-amber-200 rounded-2xl text-center text-white" type="text" placeholder="Pokemón..." [value]=PokemonName() (input)="PokemonName.set($any($event.target).value)">
+        <button class="p-4 bg-green-400 hover:bg-blue-500 text-1xl text-white border-2 rounded-2xl border-amber-500" type="submit" (click)="sendPokemon()">Buscar</button>
+      </div><!--! FIN DE INPUTS DE BUSQUEDA -->
+
+    </div> <!--!FIN DEL CONTENEDOR PRINCIPAL-->
+
+  </div>
+</div>
+

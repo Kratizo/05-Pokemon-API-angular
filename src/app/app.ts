@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardComponent } from "./Pokemon/Components/Card-component/Card-component";
+import { DataCardComponent } from "./Pokemon/Components/Data-card-component/Data-card-component";
 
 @Component({
   selector: 'app-root',
-  imports: [ CardComponent],
+  imports: [ DataCardComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
